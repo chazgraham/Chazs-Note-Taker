@@ -15,12 +15,10 @@ router.post('/notes', (req, res) => {
     res.json(note);   
 });
 
-//TODO: get this delete api working, current is 404
-router.delete('notes/:id', (req, res) => {
-    //deleteNote(req.body.id, notes);
-    //res.json(true)
-    const note = deleteNote(req.params.id, notes)
-    res.json(note);
+
+router.delete('/notes/:id', (req, res) => {
+    deleteNote(notes, req.params.id);
+    res.json(notes)
 })
 
 module.exports = router;
